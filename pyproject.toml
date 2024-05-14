@@ -11,11 +11,9 @@ license = {file = "LICENSE"}
 keywords = ["mago", "unit of measure", "format", "convert"]
 
 [project.urls]
-Homepage = "https://example.com"
-Documentation = "https://readthedocs.org"
-Repository = "https://github.com/me/spam.git"
-Issues = "https://github.com/me/spam/issues"
-Changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
+Homepage = "https://github.com/AlexSartori/magolib"
+Repository = "https://github.com/AlexSartori/magolib"
+Issues = "https://github.com/AlexSartori/magolib/issues"
 
 [tool.setuptools.dynamic]
 version = {attr = "magolib.__version__"}
