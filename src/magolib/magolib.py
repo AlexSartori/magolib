@@ -50,6 +50,7 @@ def maghi_to_meters(maghi: float|int) -> float:
         raise TypeError("Invalid input type: " + str(type(maghi)))
 
 
+# TODO: Negative numbers probably break this function
 def format_maghi(maghi: float|int) -> str:
     if not isinstance(maghi, (int, float)):
         raise TypeError("Invalid input type: " + str(type(maghi)))
