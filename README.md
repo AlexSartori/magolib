@@ -121,3 +121,31 @@ Next, you can perform all these operations:
 >>> magolib.convert_maghi(7.2, 'm', 'u')
 7200.000000000001
 ```
+
+
+#### Parse meters from string
+
+```python
+>>> magolib.parse_meters('-2e3 km')
+-2000000.0
+>>> magolib.parse_meters('1 m')
+1.0
+>>> magolib.parse_meters('.3 dm')
+0.03
+>>> magolib.parse_meters('-2e3 km')
+-2000000.0
+```
+
+
+#### Parse maghi from string
+
+```python
+>>> magolib.parse_maghi('1ℳ')
+1.0
+>>> magolib.parse_maghi('1M')
+1.0
+>>> magolib.parse_maghi('3 mM')
+0.003
+```
+
+*Note: here for simplicity you can use an uppercase 'M' in place of the symbol 'ℳ'*
