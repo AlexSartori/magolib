@@ -1,0 +1,21 @@
+[project]
+name = "magolib"
+description = "A library to format and convert numbers in the Mago unit of measure"
+dynamic = ["version"]
+dependencies = []
+authors = [
+  {name = "Alessandro Sartori", email = "alex.sartori1997@gmail.com"},
+]
+readme = "README.md"
+license = {file = "LICENSE"}
+keywords = ["mago", "unit of measure", "format", "convert"]
+
+[project.urls]
+Homepage = "https://example.com"
+Documentation = "https://readthedocs.org"
+Repository = "https://github.com/me/spam.git"
+Issues = "https://github.com/me/spam/issues"
+Changelog = "https://github.com/me/spam/blob/master/CHANGELOG.md"
+
+[tool.setuptools.dynamic]
+version = {attr = "magolib.__version__"}
