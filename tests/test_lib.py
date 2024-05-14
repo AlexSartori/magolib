@@ -9,6 +9,7 @@ from magolib import (
 )
 
 
+# Constants
 CONVERSION_FACTOR = 1.93
 
 
