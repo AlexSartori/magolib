@@ -73,7 +73,7 @@ Alternatively, you can clone this repository, `cd` into it, and run `pip install
 First off, import `magolib`:
 
 ```python
-import magolib
+from magolib import *
 ```
 
 Next, you can perform all these operations:
@@ -81,71 +81,56 @@ Next, you can perform all these operations:
 #### Convert meters to maghi
 
 ```python
->>> magolib.meters_to_maghi(1.0)
-0.5181347150259068
->>> magolib.meters_to_maghi(-0.58)
--0.3005181347150259
->>> magolib.meters_to_maghi(2.3e4)
-11917.098445595855
+>>> "34 meters equal %.2f maghi" % meters_to_maghi(34)
+'34 meters equal 17.62 maghi'
 ```
 
 #### Convert maghi to meters
 
 ```python
->>> magolib.maghi_to_meters(1.0)
-1.93
->>> magolib.maghi_to_meters(-42.5)
--82.02499999999999
->>> magolib.maghi_to_meters(1.9e-2)
-0.03667
+>>> "One Niccolò is said to be %.2f meters tall" % maghi_to_meters(1)
+'One Niccolò is said to be 1.93 meters tall'
 ```
 
 #### Format maghi as strings
 
 ```python
->>> magolib.format_maghi(1.0)
-'1.00 ℳ  (maghi)'
->>> magolib.format_maghi(3.4e-10)
-'340.00 pℳ  (picomaghi)'
->>> magolib.format_maghi(23e6)
-'23.00 Mℳ  (megamaghi)'
+>>> "If you cut a Niccolò in 56 pieces and take 3, you get %s" % format_maghi(3/56)
+'If you cut a Niccolò in 56 pieces and take 3, you get 5.36 cℳ  (centimaghi)'
 ```
 
 #### Convert maghi subunits
 
 ```python
->>> magolib.convert_maghi(1.0, '', 'k')
-0.001
->>> magolib.convert_maghi(5, 'h', '')
-500.0
->>> magolib.convert_maghi(7.2, 'm', 'u')
-7200.000000000001
+>>> "274638 maghi equals %.2f kilomaghi" % convert_maghi(274638, '', 'k')
+'274638 maghi equals 274.64 kilomaghi'
 ```
 
 
 #### Parse meters from string
 
 ```python
->>> magolib.parse_meters('-2e3 km')
--2000000.0
->>> magolib.parse_meters('1 m')
-1.0
->>> magolib.parse_meters('.3 dm')
-0.03
->>> magolib.parse_meters('-2e3 km')
--2000000.0
+>>> "A giraffe hair can be as thick as %f meters" % parse_meters("350 um")
+'A giraffe hair can be as thick as 0.000350 meters'
 ```
 
 
 #### Parse maghi from string
 
 ```python
->>> magolib.parse_maghi('1ℳ')
-1.0
->>> magolib.parse_maghi('1M')
-1.0
->>> magolib.parse_maghi('3 mM')
-0.003
+>>> "0.406 hℳ means %.2f maghi" % parse_maghi('0.406 hℳ')
+'0.406 hℳ means 40.60 maghi'
+
+# For simplicity, you can use an uppercase 'M' in place of the symbol 'ℳ
+>>> "2.4e5 mM means %.2f maghi" % parse_maghi('2.4e5 mM')
+'2.4e5 mM means 240.00 maghi'
 ```
 
-*Note: here for simplicity you can use an uppercase 'M' in place of the symbol 'ℳ'*
+#### Combine everything!
+
+```python
+>>> earth_circumference = parse_meters('40075.017 km')
+>>> circ_in_maghi = meters_to_maghi(earth_circumference)
+>>> "The Earth's circumference is %s" % format_maghi(circ_in_maghi)
+"The Earth's circumference is 20.76 Mℳ  (megamaghi)"
+```
